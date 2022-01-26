@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tatooz.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="fontawsome/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+
+   <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            font-size: 20px;
+        }
+        #navbar{
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: .5em .5em;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, .5);
+            background-color: black;
+        }
+        .navbar .navbar-brand{
+            font-size: 30px;
+            font-weight: 800;
+            color: rgba(61, 48, 248, 0.897);
+        }
+        #navbarSupportedContent a{
+            border-bottom: 2px solid transparent;
+            font-size: 1.5em;
+        }
+        #navbarSupportedContent a:hover{
+            border-bottom: 2px solid rgb(255, 238, 0);
+        }
+        #navbarSupportedContent button{
+            background: linear-gradient(rgb(25, 0, 255, 0.3),rgba(255, 251, 0, 0.3));
+            border-radius: 10px;
+            color: blanchedalmond;
+        }
+        section{
+          width: 100%;
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 10px 10px 10px rgb(187, 187, 238);
+        }
+        /*HOME*/
+        #home{
+          background: linear-gradient(rgb(25, 0, 255, 0.3),rgba(255, 251, 0, 0.3)), url(/tatoos/images/aa.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: top;
+          flex-direction: column;
+
+        }
+        #home h1{
+          font-size: 5em;
+          text-align: center;
+          font-weight: 800;
+          text-shadow: 0px 1px 0px #ccc,
+                       0px 2px 0px #ccc,
+                       0px 3px 0px #ccc,
+                       0px 4px 0px rgb(5, 255, 26),
+                       0px 5px 0px rgb(5, 255, 26),
+                       0px 6px 0px rgb(5, 255, 26);
+        }
+        #home p{
+          font-size: 30px;
+          font-weight: 700;
+          color: rgb(0, 0, 0);
+        }
+        #home .input-group{
+          width: 50%;
+          height: 45px;
+        }
+        #home button{
+          background: linear-gradient(rgb(25, 0, 255, 0.3),rgba(255, 251, 0, 0.3));
+          font-size: 20px;
+          font-weight: 700;
+          color: blanchedalmond;
+        }
+        
+        /** ABOUT 25, 0, 255, 1 **/
+        #about{
+          background: linear-gradient(rgb(247, 0, 255),rgb(255, 251, 0));
+        }
+        .img-fluid{
+          border-radius: 20px;
+        }
+        /* services */
+        #services{
+          background-color: #e5e5e5;
+        }
+        #services h1{
+          font-weight: 800;
+          text-shadow: 5px 3px 3px rgb(155, 143, 143);
+        }
+        #services img{
+          width: 200px;
+          height: 200px;
+          padding: 10px;
+        }
+        .card{
+          width: 200px;
+          height: 300px;
+          margin: 10px auto;
+          border: none;
+          box-shadow: 15px 20px 20px rgba(200, 200, 200, 0.74),
+                      inset 4px 4px 10px rgb(219, 200, 200);
+          border-radius: 20px;
+          align-items: center;
+          
+        }
+        .card .card-title{
+          padding: 0px 10px;
+          margin: 0;
+        }
+        .card:hover{
+          box-shadow: inset 5px 20px 20px rgba(168, 168, 168, 0.3),
+                      inset -4px -4px 10px rgb(212, 139, 139);  
+        }
+        /*** contact **/
+        #contact{
+          background: linear-gradient(rgba(38, 255, 0, 0.65),rgba(35, 237, 255, 0.753));
+        }
+        #contact .row{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin: 0;
+          
+        }
+        
+        #contact .row img{
+          margin-top: 20px;
+          border-radius: 40px;
+          width: 300px;
+          height: 350px;
+          box-shadow: 15px 20px 20px rgba(200, 200, 200, 0.74),
+                      inset 4px 4px 10px rgb(219, 200, 200);
+        }
+        #contact form{
+          margin-top: 20px;
+          padding: 20px;
+          box-shadow: 15px 20px 20px rgba(200, 200, 200, 0.74),
+                      inset 4px 4px 10px rgb(219, 200, 200);
+          border-radius: 10px 20px;
+          background: linear-gradient(rgba(255, 251, 4, 0.65),rgba(17, 0, 255, 0.753));
+        }
+        #contact form:hover{
+          box-shadow: inset -15px 20px 20px rgba(200, 200, 200, 0.74),
+                      inset 4px 4px 10px rgb(219, 200, 200);
+        }
+        #contact form input{
+          padding-left: 10px;
+          border-radius: 10px;
+          border: 1px solid goldenrod;
+          background: linear-gradient(rgba(238, 155, 155, 0.582),rgba(108, 82, 195, 0.555));
+          box-shadow: 5px 5px 5px rgba(200, 200, 200, 0.74),
+                      inset 4px 4px 4px rgb(219, 200, 200);;
+        }
+        #contact form input:focus{
+          outline: none;
+        }
+        #contact form button{
+          box-shadow: 3px 5px 2px rgba(184, 115, 115, 0.719),
+        }
+        footer{
+          display: flex;
+          justify-content: flex-end;
+        }
+        #contact footer .fa-facebook-f{
+         font-size: 30px;
+         color: rgba(31, 119, 235, 0.938);
+         margin: 10px;
+        }
+        #contact footer .fa-at{
+         font-size: 30px;
+         color: rgba(223, 14, 14, 0.993);
+         margin: 10px;
+        }
+        #contact footer .fa-instagram{
+         font-size: 30px;
+         color: rgba(253, 51, 0, 0.993);
+         margin: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+            <!--navbar-->
+
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">TATOOZ</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#about">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#services">Services</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#contact">Contact</a>
+                      </li>
+                      
+                    </ul>
+                    <a href="#contact">
+                    <button class="btn">Sign In</button>
+                  </a>
+                  </div>
+                </div>
+              </nav>
+
+              <!--HOME-->
+
+              <section id="home">
+                <h1>TATOOZ.. GUDALUR</h1>
+                  <p>Making the magic hapen</p>
+                  <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter Email Address.." required>
+                    <button class="btn btn-outline-success">Get Started</button>
+                  </div>
+              </section>
+
+                <!-- ABOUT US -->
+
+              <section id="about">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-12 order-sm-2 my-5">
+                        <img src="/tatoos/images/tatoos1.jpg" alt="tatoos" class="img-fluid">
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-12 p-lg-5 p-2 my-5 order-sm-1">
+                        <h1>ABOUT US</h1>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab,
+                           voluptas fugiat iste deserunt, porro voluptate mollitia laboriosam consequuntur reprehenderit
+                           ipsum perferendis libero sapiente officia voluptates, voluptatum vero vel voluptatem qui?
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis inventore nam odio 
+                          iste enim beatae! Inventore nesciunt quis praesentium, asperiores sit
+                           optio temporibus voluptates adipisci
+                          , dolores voluptatum ut pariatur labore.</p>
+                      </div>
+                    </div>
+                  </div>
+              </section>
+
+                <!--SERVICES-->
+
+              <section id="services">
+                <div class="container m-5">
+                  <h1 class="text-center my-5">SERVICES</h1>
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt1.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$120</h5>
+                          <a href="/tatoos/images/tt1.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt2.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt2.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt3.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt3.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt11.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt11.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt5.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt5.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt4.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt4.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt7.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt7.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt8.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt8.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                      <div class="card">
+                        <img src="/tatoos/images/tt10.jpg" class="img-fluid">
+                        <div class="card-body">
+                          <h5 class="card-title">$100</h5>
+                          <a href="/tatoos/images/tt10.jpg" target="_blank" class="btn btn-primary">click</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!--contact-->
+
+              <section id="contact">  
+                  <div class="row">
+                    <h1>CONTACT US</h1>
+                    <div class="col-lg-6 col-md-6 col-12">
+                    <img src="/tatoos/images/ab.jpg" alt="tatooz" class="img-fluid">
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12 margin">
+                    <form>
+                     
+                          <label for="username">User Name</label>
+                          <input type="text" placeholder="Type here..." id="username">
+                          <br>
+                          <br>
+                          <label for="email">Email</label>
+                          <input type="email" placeholder="abcd@gmail.com" id="email">
+                          <br>
+                          <br>
+                      <button class="btn btn-primary">Login</button>
+                      </form>
+                    </div>
+                  </div>
+                  <footer class="footer mt-auto p-3">
+                  
+                      <i class="fab fa-facebook-f"></i>
+                      <i class="fas fa-at"></i>
+                      <i class="fab fa-instagram"></i>
+                  
+                  </footer>
+              </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
